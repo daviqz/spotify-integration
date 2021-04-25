@@ -1,0 +1,40 @@
+.header-container {
+    height: 4em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    background-color: #000000;
+}
+
+.logo-container {
+    align-items: center;
+    display: flex;
+}
+
+.header-menu-items-container {
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    display: flex;
+    font-weight: lighter;
+    width: 94%
+}
+
+.header-menu-items-container > a {
+    font-size: 1.7em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    color: white
+}
+
+.header-menu-items-container > a:hover {
+    color: #ccac9b;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px !important;
+    width: 50px !important;
+}
