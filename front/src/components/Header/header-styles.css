@@ -18,7 +18,7 @@
     color: #ffffff;
     display: flex;
     font-weight: lighter;
-    width: 94%
+    padding-right: 10em;
 }
 
 .header-menu-items-container > a {
