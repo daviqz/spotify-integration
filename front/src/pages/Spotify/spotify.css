@@ -1,0 +1,13 @@
+.text-shadow {
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black !important;
+}
+
+.MuiRadio-root {
+    color: rgb(255, 246, 246) !important;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black !important;
+}
+
+.spotify-card {
+    background-color: black;
+    opacity: 0.5;
+}

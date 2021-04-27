@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Input, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Grid, Button } from '@material-ui/core'
 import NoImage from 'assets/no-image.png'
+import BackgroundVideo from 'components/BackgroundVideo/BackgroundVideo'
+import './spotify.css'
 
 const App = () => {
     const [searchWord, setSearchWord] = useState('')
@@ -39,7 +41,7 @@ const App = () => {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
                 {itensBusca.albums?.items.map((album, index) => (
                     <Grid item key={index}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}>{album.name}</div>
+                        <div className='text-shadow' style={{display: 'flex', justifyContent: 'center', color: 'white'}}>{album.name}</div>
                         {album.images[0]?.url ? <img src={album.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
                 ))}
@@ -48,7 +50,7 @@ const App = () => {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
                 {itensBusca.artists?.items.map((artist, index) => (
                     <Grid item key={index}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}>{artist.name}</div>
+                        <div className='text-shadow' style={{display: 'flex', justifyContent: 'center', color: 'white'}}>{artist.name}</div>
                         {artist.images[0]?.url ? <img src={artist.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
                 ))}
@@ -57,7 +59,7 @@ const App = () => {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
                 {itensBusca.playlists?.items.map((playlist, index) => (
                     <Grid item key={index}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}>{playlist.name}</div>
+                        <div className='text-shadow' style={{display: 'flex', justifyContent: 'center', color: 'white'}}>{playlist.name}</div>
                         {playlist.images[0]?.url ? <img src={playlist.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
                 ))}
@@ -66,8 +68,8 @@ const App = () => {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
                 {itensBusca.tracks?.items.map((track, index) => (
                     <Grid item key={index}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}>{track.name}</div>
-                        <Grid style={{display: 'flex', justifyContent: 'space-evenly'}}>{track.artists.map(artist => <div>{artist.name}</div>)}</Grid>
+                        <div className='text-shadow' style={{display: 'flex', justifyContent: 'center', color: 'white'}}>{track.name}</div>
+                        <Grid style={{display: 'flex', justifyContent: 'space-evenly', color: 'white'}}>{track.artists.map(artist => <div>{artist.name}</div>)}</Grid>
                         {track.album.images[0]?.url ? <img src={track.album.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
                 ))}
@@ -82,24 +84,30 @@ const App = () => {
     }
  
     return (
-        <div className='page' style={{backgroundColor: '#E7E0E0'}}>
-            <Grid container direction='column' alignItems='center' style={{paddingTop: '5em'}}>
+        <div className='page'>
+            <BackgroundVideo/>
+            <Grid container direction='column' alignItems='center' style={{paddingTop: '5em', color: 'white'}}>
                 <Grid>
                     <FormControl component='fieldset'>
-                        <FormLabel component='legend'>Tipo de busca</FormLabel>
+                        <FormLabel component='legend' className='text-shadow' style={{color: 'white', fontSize: '2em'}}>Tipo de busca</FormLabel>
                         <RadioGroup aria-label='type' name='type' value={type} onChange={(e)=>setType(e.target.value)} row>
-                            <FormControlLabel value='album' control={<Radio />} label='Album' />
-                            <FormControlLabel value='artist' control={<Radio />} label='Artista' />
-                            <FormControlLabel value='playlist' control={<Radio />} label='Playlist' />
-                            <FormControlLabel value='track' control={<Radio />} label='Música' />
+                            <FormControlLabel className='text-shadow' value='album' control={<Radio />} label='Album' />
+                            <FormControlLabel className='text-shadow' value='artist' control={<Radio />} label='Artista' />
+                            <FormControlLabel className='text-shadow' value='playlist' control={<Radio />} label='Playlist' />
+                            <FormControlLabel className='text-shadow' value='track' control={<Radio />} label='Música' />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid style={{marginTop: '2em'}}>
-                    <Input onChange={(e)=>setSearchWord(e.target.value)} value={searchWord} placeholder='Buscar' style={{width: '10em', textAlign: 'center'}}/>
+                    <Input 
+                        inputProps={{
+                            style: {color: 'purple', textShadow: '-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white'}
+                        }} 
+                        onChange={(e)=>setSearchWord(e.target.value)} value={searchWord} placeholder='Buscar' style={{width: '10em', textAlign: 'center', color: 'purple', fontWeight: 'bold', fontSize: '1.3em'}}
+                    />
                 </Grid>
                 <Grid style={{marginTop: '2em'}}>
-                    <Button variant="contained" color="primary" onClick={search}>buscar</Button>
+                    <Button variant="contained" color="primary" style={{backgroundImage: 'linear-gradient(to right, black, #0E3909)', color: 'white', fontSize: '1.2em'}} size='large' onClick={search}>buscar</Button>
                 </Grid>
             </Grid>
             <RenderItems/>            

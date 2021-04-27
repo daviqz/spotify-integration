@@ -1,6 +1,5 @@
 //Esse é o famoso controller que faz toda a função do servidor
 
-const axios = require('axios')
 var request = require('request')
 //Spotify
 const clientId = '696cf9135183457a8429a2577b4bf773'
