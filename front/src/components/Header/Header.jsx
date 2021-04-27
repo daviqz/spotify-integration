@@ -8,12 +8,14 @@ const Header = () => {
 
     return (
         <Grid container className='header-container'>
-            <Link to='/'>
-                <div className='logo-container'>
-                    <img src={MainLogo} className='logo-image' alt='Tree'/>
-                </div>
-            </Link>
-            <Grid item className='header-menu-items-container'>
+            <Grid xs={1}>
+                <Link to='/'>
+                    <div className='logo-container'>
+                        <img src={MainLogo} className='logo-image' alt='Tree'/>
+                    </div>
+                </Link>
+            </Grid>
+            <Grid item className='header-menu-items-container' xs={11}>
                 <Link to='/'>
                     Home 
                 </Link>

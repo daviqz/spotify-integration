@@ -38,3 +38,9 @@
     height: 50px !important;
     width: 50px !important;
 }
+
+@media screen and (max-width: 465px) {
+    .header-menu-items-container {
+        display: none;
+    }
+}
