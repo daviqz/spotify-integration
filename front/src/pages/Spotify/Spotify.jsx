@@ -28,7 +28,6 @@ const App = () => {
                 default:
                     break
             }
-            console.log({[objectName]: response.data[objectName]})
             setItensBusca({[objectName]: response.data[objectName]})
         })
     }
@@ -38,8 +37,8 @@ const App = () => {
 
         if(itensBusca?.albums) {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
-                {itensBusca.albums?.items.map(album => (
-                    <Grid item>
+                {itensBusca.albums?.items.map((album, index) => (
+                    <Grid item key={index}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>{album.name}</div>
                         {album.images[0]?.url ? <img src={album.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
@@ -47,8 +46,8 @@ const App = () => {
             </Grid>
         } else if(itensBusca?.artists) {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
-                {itensBusca.artists?.items.map(artist => (
-                    <Grid item>
+                {itensBusca.artists?.items.map((artist, index) => (
+                    <Grid item key={index}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>{artist.name}</div>
                         {artist.images[0]?.url ? <img src={artist.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
@@ -56,8 +55,8 @@ const App = () => {
             </Grid>
         } else if (itensBusca?.playlists) {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
-                {itensBusca.playlists?.items.map(playlist => (
-                    <Grid item>
+                {itensBusca.playlists?.items.map((playlist, index) => (
+                    <Grid item key={index}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>{playlist.name}</div>
                         {playlist.images[0]?.url ? <img src={playlist.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
                     </Grid>
@@ -65,8 +64,8 @@ const App = () => {
             </Grid>
         } else if (itensBusca?.tracks) {
             content = <Grid container style={{display: 'flex', justifyContent: 'center'}}>
-                {itensBusca.tracks?.items.map(track => (
-                    <Grid item>
+                {itensBusca.tracks?.items.map((track, index) => (
+                    <Grid item key={index}>
                         <div style={{display: 'flex', justifyContent: 'center'}}>{track.name}</div>
                         <Grid style={{display: 'flex', justifyContent: 'space-evenly'}}>{track.artists.map(artist => <div>{artist.name}</div>)}</Grid>
                         {track.album.images[0]?.url ? <img src={track.album.images[0]?.url} alt='img' width='300' height='300'/> : <img src={NoImage} alt='img' width='300' height='300'/>}
